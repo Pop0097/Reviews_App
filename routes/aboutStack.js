@@ -1,14 +1,20 @@
+import React from 'react';
 import { createStackNavigator } from 'react-navigation-stack';
 
 //import JS files to use in the stack navigation
 import About from '../screens/about';
 
+//import custom header
+import Header from '../shared/header';
+
 
 const screens = {
     About: { //default stack
         screen: About,
-        navigationOptions: {
-            title: 'About Pop\'s Reviews',
+        navigationOptions: ({ navigation }) => {
+            return {
+                headerTitle: () => <Header navigation={navigation} title="About Pop's Reviews" />
+            }
         }
     },
 }
