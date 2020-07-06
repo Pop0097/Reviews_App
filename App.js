@@ -3,7 +3,7 @@ import Home from './screens/home';
 import * as Font from 'expo-font';
 import { AppLoading } from 'expo';
 
-import Navigator from './routes/homeStack';
+import Navigator from './routes/drawer';
 
 const getFonts = () => Font.loadAsync({
   'roboto-regular': require('./assets/fonts/RobotoSlab-Regular.ttf'),
