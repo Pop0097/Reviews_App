@@ -1,14 +1,12 @@
 import React from 'react';
-import { StrlySheets, View, Text } from 'react-native';
+import { View, Text } from 'react-native';
+import { globalStyles } from '../styles/global';
 
 export default function Home() {
-    return (
-        <View>
-            <Text> This is home! </Text>
-        </View>
-    )
+  return (
+    <View style={globalStyles.container}>
+      <Text style={globalStyles.titleText}>Home Screen</Text>
+      <Text style={globalStyles.paragraph}>Hellooo</Text>
+    </View>
+  );
 }
-
-const styles = StyleSheet.create({
-
-});
