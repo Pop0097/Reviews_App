@@ -8,9 +8,8 @@ import { MaterialIcons } from '@expo/vector-icons';
 
 export default function Home({ navigation }) {
   const [reviews, setReviews] = useState([
-    { title: 'Zelda, Breath of Fresh Air', rating: 5, body: 'lorem ipsum', key: '1' },
-    { title: 'Gotta Catch Them All (again)', rating: 4, body: 'lorem ipsum', key: '2' },
-    { title: 'Not So "Final" Fantasy', rating: 3, body: 'lorem ipsum', key: '3' },
+    { title: 'Default 1', rating: 5, body: 'lorem ipsum', key: '1' },
+    { title: 'Default 2', rating: 4, body: 'lorem ipsum', key: '2' },
   ]);
 
   const [modalView, setModalView] = useState(false);

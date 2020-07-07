@@ -2,9 +2,9 @@ import React from 'react';
 import { StyleSheet, Button, TextInput, View, Text } from 'react-native';
 import { globalStyles } from '../styles/global.js';
 import { Formik } from 'formik';
-//import * as yup from 'yup';
+import * as yup from 'yup';
 
-/*
+
 const reviewSchema = yup.object({ //set of rules for inputs
     title: yup.string()
         .required()
@@ -14,11 +14,11 @@ const reviewSchema = yup.object({ //set of rules for inputs
         .min(10),
     rating: yup.string()
         .required()
-        .text('isValid', 'Rating must be a number between 1 and 5 inclusive.', (val) => {
-            return parseInt(val) < 6 && parseInt(val) > 0;
+        .test('num', 'Must be a number between 1 and 5',  (val) => {
+            return (parseInt(val) < 6 && parseInt(val) > 0);
         }),
 })
-*/
+
 
 export default function ReviewForm({ addReview }) {
 
@@ -26,7 +26,7 @@ export default function ReviewForm({ addReview }) {
     <View style={globalStyles.container}>
       <Formik
         initialValues={{ title: '', body: '', rating: '' }}
-        //validationSchema={reviewSchema}
+        validationSchema={reviewSchema}
         onSubmit={(values, actions) => {
           actions.resetForm(); 
           addReview(values);
