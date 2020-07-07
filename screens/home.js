@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, Text, TouchableOpacity, FlatList, Modal } from 'react-native';
+import { StyleSheet, View, Text, TouchableOpacity, FlatList, Modal, TouchableWithoutFeedback, Keyboard } from 'react-native';
 import { globalStyles } from '../styles/global';
 import Card from '../shared/card';
 import ReviewForm from './reviewForm';
@@ -15,14 +15,24 @@ export default function Home({ navigation }) {
 
   const [modalView, setModalView] = useState(false);
 
+  const addReview = (review) => {
+    review.key = Math.random().toString();
+    setReviews((currentReviews) => {
+        return [review, ...currentReviews];
+    });
+    setModalView(false);
+  }
+
   return (
     <View style={globalStyles.container}>
       
       <Modal visible={modalView} animationType='slide'>
-        <View style={styles.modalContent}>
-          <MaterialIcons style={{...styles.modalToggle, ...styles.modalClose}} name="close" size={30} onPress={() => setModalView(false)} />
-          <ReviewForm />
-        </View>
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+          <View style={styles.modalContent}>
+            <MaterialIcons style={{...styles.modalToggle, ...styles.modalClose}} name="close" size={30} onPress={() => setModalView(false)} />
+            <ReviewForm addReview={addReview} />
+          </View>
+        </TouchableWithoutFeedback>
       </Modal>
 
       <MaterialIcons style={styles.modalToggle} name='add' size={30} onPress={() => setModalView(true)}/>
