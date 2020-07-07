@@ -25,6 +25,11 @@ const screens = {
     }
 }
 
-const HomeStack = createStackNavigator(screens); //creates stack navigation. screen parameter contains all of the pages 
+const HomeStack = createStackNavigator(screens, {
+    defaultNavigationOptions: {
+        headerTintColor: '#444',
+        headerStyle: { backgroundColor: '#eee', height: 60 }
+    }
+  }); //creates stack navigation. screen parameter contains all of the pages 
 
 export default HomeStack; //exports the home stack 
