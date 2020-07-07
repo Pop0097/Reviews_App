@@ -5,7 +5,7 @@ import { globalStyles } from '../styles/global';
 export default function About() {
   return (
     <View style={globalStyles.container}>
-      <Text>About Screen</Text>
+      <Text>Just a simple app to learn more about React JS.</Text>
     </View>
   );
 }
