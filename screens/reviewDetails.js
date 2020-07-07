@@ -5,7 +5,9 @@ import Card from '../shared/card';
 
 export default function ReviewDetails({ navigation }) {
   const rating = navigation.getParam('rating');
-  
+
+  const path = images.ratings[rating]
+
   return (
     <View style={globalStyles.container}>
       <Card>
@@ -15,7 +17,7 @@ export default function ReviewDetails({ navigation }) {
         <Text>{ navigation.getParam('body') }</Text>
         <View style={styles.rating}>
           <Text>Rating: </Text>
-          <Image source={images.ratings[rating]} />
+          <Image source={path} style={styles.images}/>
         </View>
       </Card>
     </View>
@@ -30,5 +32,8 @@ const styles = StyleSheet.create({
     marginTop: 16,
     borderTopWidth: 1,
     borderTopColor: '#eee',
+  },
+  images: {
+    
   }
 });
