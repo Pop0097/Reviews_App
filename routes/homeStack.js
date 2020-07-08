@@ -11,7 +11,7 @@ import Header from '../shared/header';
 const screens = {
     Home: { //default stack
         screen: Home,
-        navigationOptions: ({ navigation }) => {
+        navigationOptions: ({ navigation }) => { //creates a function that returns the custom header compoenntn. This is done so header.js can access "navigation"
             return {
                 headerTitle: () => <Header navigation={navigation} title="Pop's Reviews" />
             }

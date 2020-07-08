@@ -27,16 +27,15 @@ export default function ReviewForm({ addReview }) {
     <View style={globalStyles.container}>
       <Formik
         initialValues={{ title: '', body: '', rating: '' }}
-        validationSchema={reviewSchema}
+        validationSchema={reviewSchema} //schema for validation
         onSubmit={(values, actions) => {
           actions.resetForm(); 
-          addReview(values);
+          addReview(values); //calls method to add reviews
         }}
       >
         {(props) => (
           <View>
-            <TextInput
-                multiline 
+            <TextInput 
                 style={globalStyles.input}
                 placeholder='Review Title'
                 onChangeText={props.handleChange('title')}

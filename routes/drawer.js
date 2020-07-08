@@ -6,7 +6,7 @@ import HomeStack from './homeStack';
 import AboutStack from './aboutStack';
 
 // drawer navigation options
-const RootDrawerNavigator = createDrawerNavigator({
+const RootDrawerNavigator = createDrawerNavigator({ //uses two different stacks as the drawers
   Home: {
     screen: HomeStack,
   },
@@ -15,4 +15,4 @@ const RootDrawerNavigator = createDrawerNavigator({
   },
 });
 
-export default createAppContainer(RootDrawerNavigator);
+export default createAppContainer(RootDrawerNavigator); //exports app container that is accessed in App.js

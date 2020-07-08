@@ -3,15 +3,16 @@ import { StyleSheet, View, Text, Image } from 'react-native';
 import { globalStyles, images } from '../styles/global';
 import Card from '../shared/card';
 
-export default function ReviewDetails({ navigation }) {
-  const rating = navigation.getParam('rating');
+export default function ReviewDetails({ navigation }) { //navigation is passed 
+  const rating = navigation.getParam('rating'); 
 
-  const path = images.ratings[rating]
+  const path = images.ratings[rating] //gets path to image by using the dictionary in global.js
 
   return (
     <View style={globalStyles.container}>
       <Card>
         <Text style={globalStyles.titleText}>
+          {/* Syntax used to access parameters of "item" */}
           { navigation.getParam('title') }
         </Text>
         <Text>{ navigation.getParam('body') }</Text>

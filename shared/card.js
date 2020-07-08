@@ -1,10 +1,11 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 
-export default function Card(props) {
+export default function Card(props) { //pass in props, which are all components nested under <Card></Card>
   return (
     <View style={styles.card}>
       <View style={styles.cardContent}>
+        {/* Displays all of the components nested under <Card></Card> */}
         { props.children }
       </View>
     </View>

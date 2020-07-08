@@ -14,18 +14,19 @@ export default function Home({ navigation }) {
 
   const [modalView, setModalView] = useState(false);
 
-  const addReview = (review) => {
-    review.key = Math.random().toString();
+  const addReview = (review) => { //called when review form is complted
+    review.key = Math.random().toString(); //makes key randomly
     setReviews((currentReviews) => {
-        return [review, ...currentReviews];
+        return [review, ...currentReviews]; //adds new review to top of list
     });
-    setModalView(false);
+    setModalView(false); 
   }
 
   return (
     <View style={globalStyles.container}>
       
-      <Modal visible={modalView} animationType='slide'>
+      {/* Modal for the "create review" form */}
+      <Modal visible={modalView} animationType='slide'> 
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
           <View style={styles.modalContent}>
             <MaterialIcons style={{...styles.modalToggle, ...styles.modalClose}} name="close" size={30} onPress={() => setModalView(false)} />
@@ -37,6 +38,7 @@ export default function Home({ navigation }) {
       <MaterialIcons style={styles.modalToggle} name='add' size={30} onPress={() => setModalView(true)}/>
 
       <FlatList data={reviews} renderItem={({ item }) => (
+        //when navigating, the item in question is also passsed so we can access the data values 
         <TouchableOpacity onPress={() => navigation.navigate('ReviewDetails', item)}>
           <Card> 
             <Text style={globalStyles.titleText}>{ item.title }</Text>
